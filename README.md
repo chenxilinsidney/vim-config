@@ -12,11 +12,11 @@ vim-config
 Installation
 ---------------
    1. Clone the repo:
-             git clone git://github.com/chenxilinsidney/vim-config.git ~/.vim-config
+    git clone git://github.com/chenxilinsidney/vim-config.git ~/.vim-config
    2. Install:
-             cd ~/.vim-config
-             cp -rf .vim ~
-             cp -f .vimrc ~
+    cd ~/.vim-config
+    cp -rf .vim ~
+    cp -f .vimrc ~
 
 Plugins
 -------
@@ -35,4 +35,5 @@ Plugin 'c.vim'
 
 More Details
 ------------
-    Please refer to .vimrc in my repo. It describe the detail of vimrc including the plugin settings.
+    Please refer to .vimrc in my repo.
+    It describe the detail of vimrc including the plugin settings.

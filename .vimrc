@@ -1,8 +1,8 @@
 "==============================================================================
-"Author:chen xi lin.
-"Version:1.0
-"E-Mail:chenxilinsidney@gmail.com
-"Sections:
+" Author:chen xi lin.
+" Version:1.0
+" E-Mail:chenxilinsidney@gmail.com
+" Plugins with setting:
 " ->For Vundle
 " ->For Python Mode
 " ->General
@@ -20,27 +20,19 @@
 " ->Bufexplorer
 " ->echofunc
 " ->DoxygenToolkit
-"Extra:
+" Plugins without setting:
 " ->fugitive: a git wrapper.
-" ->Details: https://github.com/tpope/vim-fugitive
 "==============================================================================
 "==============================================================================
 " ->For Vundle: Vundle is short for Vim bundle and is a Vim plugin manager.
-" ->Details: https://github.com/gmarik/Vundle.vim
 "==============================================================================
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-
-" The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
@@ -54,33 +46,13 @@ Plugin 'OmniCppComplete'
 Plugin 'DoxygenToolkit.vim'
 Plugin 'taglist.vim'
 Plugin 'c.vim'
-" Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-"Plugin 'user/L9', {'name': 'newL9'}
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+filetype plugin on
 "==============================================================================
 " ->For Python Mode: create python code quickly
-" ->Details: https://github.com/klen/python-mode
 "==============================================================================
 " Pathogen load
 filetype off
@@ -204,17 +176,16 @@ set statusline=%<%f%h%m%r%=%b\ 0x%B\ \ %l,%c%V\ %P
 "==============================================================================
 " ->Tags and Taglist
 "==============================================================================
-"update tags
-function! UpdateTags()
-    execute ":!ctags -R --languages=C++ --c++-kinds=+p --fields=+iaS --extra=+q"
-    echoh1 StatusLine | echo "C/C++ tag updated" | echoh1 None
-endfunction
-nnoremap <F8> :call UpdateTags() .<CR>
+nnoremap <F8> :!ctags -R --languages=C++ --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 "set map F3 to toggle the taglist window
 noremap <silent> <F3>  <Esc><Esc>:Tlist<CR>
 inoremap <silent> <F3>  <Esc><Esc>:Tlist<CR>
 "set ctags path
-set tags+=./tags,tags ",~/.vim/systags
+set tags+=./tags,tags
+set tags+=~/.vim/tag/opencvtags
+set tags+=~/.vim/tag/systags
+set tags+=~/.vim/tag/localsystags
+set tags+=~/.vim/tag/stdlibcpptags
 "set ctags bin path for Taglist
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 "open Taglist window as default
@@ -266,14 +237,14 @@ let OmniCpp_LocalSearchDecl=0
 " ->SuperTab
 "==============================================================================
 "Remember the completion type
-let g:SuperTabRetainCompletitionType=2
+"let g:SuperTabRetainCompletitionType=2
 "Used to set the default completion type
-let g:SuperTabDefaultComletionType="<C-X><C-O>"
+"let g:SuperTabDefaultComletionType="<C-X><C-O>"
 "==============================================================================
 " ->C-support
 "==============================================================================
 "set map leader
-"let g:C_MapLeader=','
+let g:C_MapLeader=','
 "enable additional tools
 let g:C_UseTool_cmake    = 'yes'
 let g:C_UseTool_doxygen  = 'yes'
@@ -307,10 +278,10 @@ nmap <F4> :BufExplorerHorizontalSplit<CR>
 let g:EchoFuncKeyNext='<C-n>'
 let g:EchoFuncKeyPre='<C-p>'
 "format for echofunc plugin
-if has('statusline')
-    let g:EchoFuncShowOnStatus=1
+"if has('statusline')
+    "let g:EchoFuncShowOnStatus=1
     "set statusline=%{EchoFuncGetStatusLine()}
-endif
+"endif
 "==============================================================================
 " ->DoxygenToolkit
 "==============================================================================

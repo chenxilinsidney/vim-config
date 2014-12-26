@@ -41,6 +41,7 @@ Plugin 'mbbill/echofunc'
 Plugin 'ervandew/supertab'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'scrooloose/nerdtree'
+Plugin 'simplyzhao/cscope_maps.vim'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'OmniCppComplete'
 Plugin 'DoxygenToolkit.vim'
@@ -187,7 +188,7 @@ set tags+=~/.vim/tag/systags
 set tags+=~/.vim/tag/localsystags
 set tags+=~/.vim/tag/stdlibcpptags
 "set ctags bin path for Taglist
-let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+let Tlist_Ctags_Cmd='/usr/bin/ctags'
 "open Taglist window as default
 "let Tlist_Auto_Open=1
 "show only one file tags
